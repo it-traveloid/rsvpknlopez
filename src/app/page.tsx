@@ -62,6 +62,21 @@ export default function Home() {
               </div>
             </div>
           )}
+
+          {step === Step.Rejected && (
+            <div
+              className="flex bg-black rounded-lg relative md:flex-row md:w-1/2 md:h-1/2 overflow-hidden bg-opacity-80 animate-fade-in-down
+            h-full w-full
+            flex-col
+          "
+            >
+              <div className="flex-auto p-8 flex flex-col justify-center items-center">
+                <h1 className="text-3xl text-white">
+                  We&apos;re sorry you can&apos;t make it. We&apos;ll miss you!
+                </h1>
+              </div>
+            </div>
+          )}
         </>
       ) : null}
     </main>

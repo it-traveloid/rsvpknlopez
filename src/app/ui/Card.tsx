@@ -11,11 +11,12 @@ const Card = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
       setTimeout(() => {
         setStep(Step.Form);
       }, 200);
+    } else {
+      // add delay to allow animation to finish
+      setTimeout(() => {
+        setStep(Step.Rejected);
+      }, 200);
     }
-  };
-
-  const onCardLeftScreen = (myIdentifier: any) => {
-    console.log(myIdentifier + " left the screen");
   };
 
   return (
@@ -27,7 +28,6 @@ const Card = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
         onSwipe={onSwipe}
         flickOnSwipe={true}
         preventSwipe={["up", "down"]}
-        onCardLeftScreen={() => onCardLeftScreen("fooBar")}
       >
         <div
           className="relative md:w-[24rem] md:h-[40rem] bg-cover bg-center rounded-lg shadow-xl
