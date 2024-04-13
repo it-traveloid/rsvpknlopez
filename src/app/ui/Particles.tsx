@@ -3,7 +3,7 @@ import { loadSlim } from "@tsparticles/slim";
 import { type Container } from "@tsparticles/engine";
 import { useEffect, useState } from "react";
 
-const options = {
+const options: any = {
   background: {
     color: {
       value: "#010110",

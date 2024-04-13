@@ -1,7 +1,7 @@
 "use client";
 import { Dispatch, SetStateAction, useRef } from "react";
 import TinderCard from "react-tinder-card";
-import { Step } from "../page";
+import { Step } from "../../types";
 
 const Card = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
   const ref = useRef(null);

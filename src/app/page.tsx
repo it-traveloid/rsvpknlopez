@@ -4,12 +4,7 @@ import Card from "./ui/Card";
 import Form from "./ui/Form";
 
 import ParticleBackground from "./ui/Particles";
-
-export enum Step {
-  Card,
-  Form,
-  Success,
-}
+import { Step } from "@/types";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);

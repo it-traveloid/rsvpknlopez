@@ -1,5 +1,5 @@
 import { Dispatch, FormEvent, SetStateAction, useState } from "react";
-import { Step } from "../page";
+import { Step } from "../../types";
 
 const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
   const [inputValue, setInputValue] = useState({
