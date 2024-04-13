@@ -20,6 +20,9 @@ const svg = (
   </svg>
 );
 
+const scriptUrl =
+  "https://script.google.com/macros/s/AKfycby8PgjKSQ4OpZj_XFKTaLAn2beu4GsjiNt8V7Xq9URCfYuwN5NWyX70D4t4n2qJqi03/exec";
+
 const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
   const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState({
@@ -39,8 +42,7 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
     setLoading(true);
 
     // Call Apps Script function
-    const scriptUrl =
-      "https://script.google.com/macros/s/AKfycbzdOfckpWyr4aubK4M4naeuipVknOTnbvYw7zFH5qjxgvWcmfMIB-trQhdOxMcFB3umvQ/exec";
+
     const scriptParams: any = {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
