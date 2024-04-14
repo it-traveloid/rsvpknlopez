@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import Card from "./ui/Card";
 import Form from "./ui/Form";
 
 import ParticleBackground from "./ui/Particles";
 import { Step } from "@/types";
+import Deck from "./ui/Card2";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -19,7 +19,7 @@ export default function Home() {
 
       {loaded ? (
         <>
-          {step === Step.Card && <Card setStep={setStep} />}
+          {step === Step.Card && <Deck setStep={setStep} />}
 
           {step === Step.Form && (
             <>

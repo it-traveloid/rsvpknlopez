@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nanum_Pen_Script, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 const nanum = Nanum_Pen_Script({
   subsets: [],
@@ -26,6 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="preload" href="/proposal.jpg" as="image" />
+        <link rel="preload" href="/savethedate.png" as="image" />
+      </Head>
       <body className={`${playfair.variable} ${nanum.variable}`}>
         {children}
       </body>
