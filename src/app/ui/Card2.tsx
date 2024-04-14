@@ -56,8 +56,6 @@ function Deck({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) {
     }
   );
 
-  console.log({ props });
-
   return (
     <div id="card-container">
       <animated.div

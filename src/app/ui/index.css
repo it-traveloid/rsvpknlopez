@@ -30,12 +30,11 @@ body {
 #card-container > div {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   will-change: transform;
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: none;
 }
 
 #card-container > div > div {
@@ -45,7 +44,7 @@ body {
   background-position: center center;
   width: 45vh;
   max-width: 300px;
-  height: 85vh;
+  height: 85dvh;
   max-height: 570px;
   display: flex;
   will-change: transform;
