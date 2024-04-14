@@ -11,7 +11,7 @@ const final = () => ({
   // rot: -10 + Math.random() * 20,
   delay: 100,
 });
-const from = () => ({ x: 0, rot: 0, scale: 1.5, y: 0 });
+const from = () => ({ x: 0, rot: 0, scale: 1.1, y: 0 });
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 
 function Deck({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) {
@@ -69,7 +69,7 @@ function Deck({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) {
         <animated.div
           {...bind("card")}
           style={{
-            backgroundImage: `url(${"/savethedate.png"})`,
+            backgroundImage: `url(${"/rsvp.gif"})`,
           }}
         >
           <animated.svg
