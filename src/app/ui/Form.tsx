@@ -75,7 +75,7 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
     "
     >
       <div className="z-10 w-full h-full flex flex-col items-center p-12 overflow-auto">
-        <h1 className="text-[5rem] font-bold mb-2 text-amber-100">RSVP</h1>
+        <h1 className="text-[4rem] font-bold mb-2 text-amber-100">RSVP</h1>
         <p className="text-amber-100 text-center mb-4">
           *Please register before end of May 2024
         </p>
