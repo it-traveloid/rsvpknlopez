@@ -16,7 +16,7 @@
 #card-container > div {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   will-change: transform;
   display: flex;
   align-items: center;
