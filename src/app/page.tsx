@@ -8,7 +8,6 @@ import Deck from "./ui/Card2";
 
 export default function Home() {
   const [step, setStep] = useState<Step>(Step.Card);
-  const [tapped, setTapped] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-screen">
@@ -27,16 +26,10 @@ export default function Home() {
           <>
             <Deck setStep={setStep} />
             <div
-              className={`w-full h-full flex items-center justify-center bg-white  ${
-                tapped
-                  ? "animate-fade-out-up"
-                  : "opacity-80 animate-fade-in-down"
-              }`}
-              onClick={() => {
-                console.log("clicked");
-                setTapped(true);
+              className={`w-full h-full flex items-center justify-center bg-white bg-opacity-70 animate-fade-out-up`}
+              style={{
+                animationDelay: "2s",
               }}
-              onTouchStart={() => setTapped(true)}
             >
               <Image
                 src={"/swipeRight.gif"}
