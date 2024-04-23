@@ -1,5 +1,6 @@
 import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import { Step } from "../../types";
+import Image from "next/image";
 
 const svg = (
   <svg
@@ -21,13 +22,16 @@ const svg = (
 );
 
 const scriptUrl =
-  "https://script.google.com/macros/s/AKfycby8PgjKSQ4OpZj_XFKTaLAn2beu4GsjiNt8V7Xq9URCfYuwN5NWyX70D4t4n2qJqi03/exec";
+  "https://script.google.com/macros/s/AKfycbytFqSwwJgo-z60IyFNPz5vPkcQkiJnbRoatdnT2efNYnOwVZ0XQysDozUslg4MfSoWbw/exec";
 
 const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
   const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState({
     firstName: "",
     lastName: "",
+    dietaryRequirements: "",
+    phone: "",
+    email: "",
     guestCount: "",
     guests: {},
   });
@@ -49,6 +53,9 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
       body: JSON.stringify({
         firstName: inputValue.firstName,
         lastName: inputValue.lastName,
+        dietaryRequirements: inputValue.dietaryRequirements,
+        phone: inputValue.phone,
+        email: inputValue.email,
         guestCount: inputValue.guestCount,
         guests,
       }),
@@ -66,60 +73,114 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
     setStep(Step.Success);
   };
 
-  const disabled = !inputValue.firstName || !inputValue.lastName || error;
+  const disabled =
+    !inputValue.firstName ||
+    !inputValue.lastName ||
+    error ||
+    (!inputValue.phone && !inputValue.email);
 
   return (
     <div
-      className="flex md:basis-1/2 flex-col items-center justify-center rounded-lg shadow-lg z-10 relative overflow-hidden font-playfair
-      basis-full
+      className="flex  flex-col items-center justify-center shadow-lg z-10 relative overflow-hidden font-poppins
+      basis-full tracking-wide
     "
     >
       <div className="z-10 w-full h-full flex flex-col items-center p-12 overflow-auto">
-        <h1 className="text-[4rem] font-bold mb-2 text-amber-100">RSVP</h1>
+        <Image
+          src={"/formHeader.jpg"}
+          alt={"form header"}
+          width={150}
+          height={150}
+          className="rounded-full mb-4"
+        />
+
         <p className="text-amber-100 text-center mb-4">
-          *Please register before end of May 2024
+          *Please RSVP before 2nd of May 2024
         </p>
         <form
           className="flex flex-col  justify-center w-full text-primary"
           onSubmit={handleSubmit}
         >
-          <label className="text-amber-100 text-md ">First Name</label>
+          <div className="flex gap-3">
+            {/* <label className="text-amber-100 text-md ">First Name</label> */}
+            <input
+              className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
+              type="text"
+              placeholder="First Name*"
+              value={inputValue.firstName}
+              onChange={(e) =>
+                setInputValue({
+                  ...inputValue,
+                  firstName: e.target.value,
+                })
+              }
+            />
+            {/* <label className="text-amber-100 text-md ">Last Name</label> */}
+            <input
+              className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
+              type="text"
+              placeholder="Last Name*"
+              value={inputValue.lastName}
+              onChange={(e) =>
+                setInputValue({
+                  ...inputValue,
+                  lastName: e.target.value,
+                })
+              }
+            />
+          </div>
           <input
             className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
             type="text"
-            value={inputValue.firstName}
+            placeholder="Dietary Restrictions "
+            value={inputValue.dietaryRequirements}
             onChange={(e) =>
               setInputValue({
                 ...inputValue,
-                firstName: e.target.value,
+                dietaryRequirements: e.target.value,
               })
             }
           />
-          <label className="text-amber-100 text-md ">Last Name</label>
+          {/* <label className="text-amber-100 text-md ">Number of Guests</label> */}
+
           <input
             className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
             type="text"
-            value={inputValue.lastName}
+            placeholder="Phone Number*"
+            value={inputValue.phone}
             onChange={(e) =>
               setInputValue({
                 ...inputValue,
-                lastName: e.target.value,
+                phone: e.target.value,
               })
             }
           />
-          <label className="text-amber-100 text-md ">Number of Guests</label>
+
+          <input
+            className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
+            type="email"
+            placeholder="Email Address*"
+            value={inputValue.email}
+            onChange={(e) =>
+              setInputValue({
+                ...inputValue,
+                email: e.target.value,
+              })
+            }
+          />
           {error && (
-            <p className="text-red-500 text-sm">
-              You can only have up to 6 guests
+            <p className="text-red-400 text-sm mb-2">
+              You can only bring up to 2 guests
             </p>
           )}
           <input
             className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
             type="text"
+            placeholder="Number of Guests"
             accept="number"
             value={inputValue.guestCount}
             onChange={(e) => {
-              if (Number(e.target.value) > 6) {
+              if (Number(e.target.value) > 2) {
                 setError(true);
               } else {
                 if (error) setError(false);
@@ -139,11 +200,11 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
             ? Array.from({ length: Number(inputValue.guestCount) }).map(
                 (_, i) => (
                   <div key={i} className="flex flex-col">
-                    <label className="text-amber-100 text-md">
+                    {/* <label className="text-amber-100 text-md">
                       Guest {i + 1}
-                    </label>
+                    </label> */}
                     <input
-                      placeholder="Enter full name"
+                      placeholder={`Name of Guest ${i + 1}`}
                       className="w-full p-4 mb-4 border border-gray-500 bg-transparent rounded-sm text-amber-100"
                       type="text"
                       value={guests?.[i] || ""}
@@ -160,7 +221,7 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
             : null}
 
           <button
-            className="w-full p-3 my-2 bg-slate-900 text-white rounded-sm hover:bg-slate-700 disabled:bg-slate-500 disabled:cursor-not-allowed disabled:text-gray-50"
+            className="transition ease-in-out w-full p-3 my-2 bg-[#8A9A5B] text-white rounded-sm hover:bg-[#96a863] disabled:bg-[#a3a3a3] disabled:cursor-not-allowed disabled:text-gray-300"
             type="submit"
             disabled={disabled || loading}
           >

@@ -2,83 +2,77 @@
 import { useState } from "react";
 import Form from "./ui/Form";
 
-import ParticleBackground from "./ui/Particles";
 import { Step } from "@/types";
 import Deck from "./ui/Card2";
 
 export default function Home() {
-  const [loaded, setLoaded] = useState(false);
-
   const [step, setStep] = useState<Step>(Step.Card);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-screen">
-      <div className="absolute h-full w-full">
-        <ParticleBackground setLoaded={setLoaded} />
-      </div>
+      <div
+        className="absolute h-full w-full"
+        style={{
+          backgroundImage: `url(${"/beach.gif"})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
 
-      {loaded ? (
-        <>
-          {step === Step.Card && <Deck setStep={setStep} />}
+      <>
+        {step === Step.Card && <Deck setStep={setStep} />}
 
-          {step === Step.Form && (
-            <>
-              <div
-                className="flex bg-black rounded-lg relative md:flex-row md:w-1/2 md:h-1/2 overflow-hidden bg-opacity-80 animate-fade-in-down
+        {step === Step.Form && (
+          <>
+            <div
+              className="flex bg-black relative md:rounded-lg md:flex-row md:w-1/3 md:h-3/4 overflow-hidden bg-opacity-80 animate-fade-in-down
               h-full w-full
               flex-col
             "
-              >
-                <Form setStep={setStep} />
-                <div
-                  className="flex-auto bg-cover bg-center "
-                  style={{
-                    backgroundImage: `url("/proposal.jpg")`,
-                  }}
-                >
-                  <div
-                    className="h-full w-full bg-primary opacity-80 flex justify-center p-24 text-white font-nanum
-                  hidden
-                  md:block
-                "
-                  ></div>
-                </div>
-              </div>
-            </>
-          )}
-          {step === Step.Success && (
-            <div
-              className="flex bg-black rounded-lg relative md:flex-row md:w-1/2 md:h-1/2 overflow-hidden bg-opacity-80 animate-fade-in-down
+            >
+              <Form setStep={setStep} />
+            </div>
+          </>
+        )}
+        {step === Step.Success && (
+          <div
+            className="flex bg-black relative md:flex-row md:w-1/2 md:h-1/2 overflow-hidden bg-opacity-80 animate-fade-in-down
             h-full w-full
             flex-col
           "
-            >
-              <div className="flex-auto p-8 flex flex-col justify-center items-center">
-                <h1 className="text-5xl text-white">Success!</h1>
-                <p className="text-white text-center">
-                  Thank you for registering. We can&apos;t wait to see you
-                  there!
-                </p>
-              </div>
-            </div>
-          )}
+          >
+            <div className="flex-auto p-10 flex flex-col justify-center items-center font-poppins">
+              <h1 className="text-7xl text-white mb-4  font-nanum">See you!</h1>
 
-          {step === Step.Rejected && (
-            <div
-              className="flex bg-black rounded-lg relative md:flex-row md:w-1/2 md:h-1/2 overflow-hidden bg-opacity-80 animate-fade-in-down
+              <p className="text-white text-center text-xl tracking-wide  mb-4 ">
+                Thank you for accepting our invitation to share in our special
+                day! Your presence means the world to us. Get ready to toast,
+                dance, and make unforgettable memories that will last a
+                lifetime. Let the wedding countdown begin!
+              </p>
+              <p className="text-white">
+                <span className="text-4xl">{`\u2665`}</span>
+              </p>
+            </div>
+          </div>
+        )}
+
+        {step === Step.Rejected && (
+          <div
+            className="flex bg-black  relative md:flex-row md:w-1/2 md:h-1/2 overflow-hidden bg-opacity-80 animate-fade-in-down
             h-full w-full
             flex-col
           "
-            >
-              <div className="flex-auto p-8 flex flex-col justify-center items-center">
-                <h1 className="text-3xl text-white">
-                  We&apos;re sorry you can&apos;t make it. We&apos;ll miss you!
-                </h1>
-              </div>
+          >
+            <div className="flex-auto p-8 flex flex-col justify-center items-center">
+              <h1 className="text-3xl text-white">
+                We&apos;re sorry you can&apos;t make it. We&apos;ll miss you!
+              </h1>
             </div>
-          )}
-        </>
-      ) : null}
+          </div>
+        )}
+      </>
     </main>
   );
 }

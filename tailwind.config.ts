@@ -20,7 +20,7 @@ const config = {
     extend: {
       fontFamily: {
         nanum: "var(--nanum)",
-        playfair: "var(--playfair)",
+        poppins: "var(--poppins)",
       },
       colors: {
         border: "hsl(var(--border))",

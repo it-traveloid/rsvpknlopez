@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nanum_Pen_Script, Playfair_Display } from "next/font/google";
+import { Nanum_Pen_Script, Poppins } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
@@ -9,10 +9,10 @@ const nanum = Nanum_Pen_Script({
   variable: "--nanum",
 });
 
-const playfair = Playfair_Display({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: "400",
-  variable: "--playfair",
+  variable: "--poppins",
 });
 
 export const metadata: Metadata = {
@@ -28,10 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="preload" href="/proposal.jpg" as="image" />
-        <link rel="preload" href="/savethedate.png" as="image" />
+        <link rel="preload" href="/beach.gif" as="image" />
+        <link rel="preload" href="/savethedate.jpg" as="image" />
+        <link rel="preload" href="/formHeader.jpg" as="image" />
       </Head>
-      <body className={`${playfair.variable} ${nanum.variable}`}>
+      <body className={`${poppins.variable} ${nanum.variable}`}>
         {children}
       </body>
     </html>

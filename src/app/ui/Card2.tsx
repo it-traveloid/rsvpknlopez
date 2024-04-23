@@ -68,9 +68,7 @@ function Deck({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) {
         {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
         <animated.div
           {...bind("card")}
-          style={{
-            backgroundImage: `url(${"/rsvp.gif"})`,
-          }}
+          style={{ backgroundImage: `url(${"/savethedate.jpg"})` }}
         >
           <animated.svg
             className="tinder-icon  reject"
