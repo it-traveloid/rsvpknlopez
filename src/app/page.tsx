@@ -10,7 +10,7 @@ export default function Home() {
   const [step, setStep] = useState<Step>(Step.Card);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-screen">
+    <main className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-dvh">
       <div
         className="absolute h-full w-full"
         style={{
