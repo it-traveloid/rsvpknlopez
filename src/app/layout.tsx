@@ -31,6 +31,8 @@ export default function RootLayout({
         <link rel="preload" href="/beach.gif" as="image" />
         <link rel="preload" href="/savethedate.jpg" as="image" />
         <link rel="preload" href="/formHeader.jpg" as="image" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta property="og:image" content="/formHeader.jpg" />
       </Head>
       <body className={`${poppins.variable} ${nanum.variable}`}>
         {children}
