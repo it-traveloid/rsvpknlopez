@@ -95,7 +95,7 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
         />
 
         <p className="text-amber-100 text-center mb-4">
-          *Please RSVP before 2nd of May 2024
+          *Please RSVP before 3rd of May 2024
         </p>
         <form
           className="flex flex-col  justify-center w-full text-primary"
@@ -226,7 +226,11 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
             disabled={disabled || loading}
           >
             {loading ? svg : null}
-            {disabled ? "Please fill in form" : "Register"}
+            {disabled
+              ? "Please fill in form"
+              : loading
+              ? "Submitting..."
+              : "Register"}
           </button>
         </form>
       </div>
