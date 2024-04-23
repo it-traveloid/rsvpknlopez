@@ -227,7 +227,7 @@ const Form = ({ setStep }: { setStep: Dispatch<SetStateAction<Step>> }) => {
           >
             {loading ? svg : null}
             {disabled
-              ? "Please fill in form"
+              ? "Please fill in the form"
               : loading
               ? "Submitting..."
               : "Register"}
