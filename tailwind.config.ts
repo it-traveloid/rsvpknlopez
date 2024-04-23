@@ -75,11 +75,16 @@ const config = {
           from: { opacity: "0", transform: "translateY(-20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-out-up": {
+          from: { opacity: "1", transform: "translateY(0)" },
+          to: { opacity: "0", transform: "translateY(-20px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-down": "fade-in-down 0.5s ease-out",
+        "fade-out-up": "fade-out-up 0.5s ease-out",
       },
     },
   },

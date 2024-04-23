@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
 import Form from "./ui/Form";
+import Image from "next/image";
 
 import { Step } from "@/types";
 import Deck from "./ui/Card2";
 
 export default function Home() {
   const [step, setStep] = useState<Step>(Step.Card);
+  const [tapped, setTapped] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-screen">
@@ -21,7 +23,30 @@ export default function Home() {
       ></div>
 
       <>
-        {step === Step.Card && <Deck setStep={setStep} />}
+        {step === Step.Card && (
+          <>
+            <Deck setStep={setStep} />
+            <div
+              className={`w-full h-full flex items-center justify-center bg-white  ${
+                tapped
+                  ? "animate-fade-out-up"
+                  : "opacity-80 animate-fade-in-down"
+              }`}
+              onClick={() => {
+                console.log("clicked");
+                setTapped(true);
+              }}
+              onTouchStart={() => setTapped(true)}
+            >
+              <Image
+                src={"/swipeRight.gif"}
+                width={150}
+                height={150}
+                alt="swipe"
+              />
+            </div>
+          </>
+        )}
 
         {step === Step.Form && (
           <>
