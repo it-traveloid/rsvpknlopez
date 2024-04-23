@@ -10,7 +10,13 @@ export default function Home() {
   const [step, setStep] = useState<Step>(Step.Card);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-dvh">
+    <main
+      className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-dvh"
+      style={{
+        WebkitBackfaceVisibility: "hidden",
+        WebkitPerspective: 1000,
+      }}
+    >
       <div
         className="absolute h-full w-full"
         style={{
