@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-dvh"
+      className="flex min-h-screen flex-col items-center justify-center w-screen overflow-hidden h-full"
       style={{
         WebkitBackfaceVisibility: "hidden",
         WebkitPerspective: 1000,
