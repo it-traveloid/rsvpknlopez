@@ -16,10 +16,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "RSVP - Kurt & Erika",
+  title: "Kurt & Erika",
   description: "RSVP for Kurt and Erika's wedding",
   openGraph: {
-    images:["https://www.kurtanderika.com/formHeader.jpg"]
+    images:"https://www.kurtanderika.com/formHeader.jpg"
   }
 };
 
