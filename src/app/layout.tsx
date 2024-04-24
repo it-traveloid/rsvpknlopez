@@ -18,6 +18,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "RSVP - Kurt & Erika",
   description: "RSVP for Kurt and Erika's wedding",
+  openGraph: {
+    images:["/formHeader.jpg"]
+  }
 };
 
 export default function RootLayout({
