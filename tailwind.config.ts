@@ -76,8 +76,8 @@ const config = {
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "fade-out-up": {
-          from: { opacity: "1", transform: "translateY(0)" },
-          to: { opacity: "0", transform: "translateY(-20px)" },
+          from: { opacity: "1", top: "0" },
+          to: { opacity: "0", top: "-100vh" },
         },
       },
       animation: {

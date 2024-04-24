@@ -32,9 +32,10 @@ export default function Home() {
           <>
             <Deck setStep={setStep} />
             <div
-              className={`w-full h-full flex items-center justify-center bg-white bg-opacity-70 animate-fade-out-up`}
+              className={`absolute w-full h-full flex items-center justify-center bg-white bg-opacity-70 animate-fade-out-up `}
               style={{
                 animationDelay: "2s",
+                animationFillMode: "forwards",
               }}
             >
               <Image
@@ -50,7 +51,7 @@ export default function Home() {
         {step === Step.Form && (
           <>
             <div
-              className="flex bg-black relative md:rounded-lg md:flex-row md:w-1/3 md:h-3/4 overflow-hidden bg-opacity-80 animate-fade-in-down
+              className="flex bg-black absolute md:rounded-lg md:flex-row md:w-1/3 md:h-3/4 overflow-hidden bg-opacity-80 animate-fade-in-down
               h-full w-full
               flex-col
             "
