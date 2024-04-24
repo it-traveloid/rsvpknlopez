@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "RSVP - Kurt & Erika",
   description: "RSVP for Kurt and Erika's wedding",
   openGraph: {
-    images:["/formHeader.jpg"]
+    images:["https://www.kurtanderika.com/formHeader.jpg"]
   }
 };
 
@@ -35,7 +35,7 @@ export default function RootLayout({
         <link rel="preload" href="/savethedate.jpg" as="image" />
         <link rel="preload" href="/formHeader.jpg" as="image" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <meta property="og:image" content="/formHeader.jpg" />
+        <meta property="og:image" content="https://www.kurtanderika.com/formHeader.jpg" />
       </Head>
       <body className={`${poppins.variable} ${nanum.variable}`}>
         {children}
